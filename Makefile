@@ -1,4 +1,4 @@
-include .env
+-include .env
 FILES=pack.png pack.txt terrain.png misc/*.png misc/*.properties
 
 .PHONY: build
