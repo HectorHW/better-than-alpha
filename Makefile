@@ -1,4 +1,5 @@
-FILES=pack.png pack.txt terrain.png
+include .env
+FILES=pack.png pack.txt terrain.png misc/*
 
 .PHONY: build
 build: build-xcf pack
@@ -11,8 +12,8 @@ build-xcf:
 pack:
 	zip alphacolors.zip $(FILES)
 
-
-
-
+.PHONY: install
+install:
+	cp alphacolors.zip ${BTA_TEXTUREPACK_FOLDER}
 
 
