@@ -2,6 +2,13 @@
 
 This repository contains simple texturepack that brings old grass and other textures to minecraft. It is intended to be used on top of Better Than Adventure mod.
 
+List of changes:
+
+* old alpha acidic green grass
+* old alpha leaves color for all tree types
+* disabled Better Than Adventure seasonal color change (this may change)
+* old cobblestone & mossy cobblestone textures
+
 **I AM ASSOCIATED WITH NEITHER MOJANG NOR BETTER THAN ADVENTURE CREATORS. ALL INCLUDED RESOURCES BELONG TO APPROPRIATE COPYRIGHT HOLDERS.**
 
 ## Building
