@@ -11,11 +11,11 @@ build-xcf:
 
 .PHONY: pack
 pack:
-	zip alphacolors.zip $(FILES)
+	zip betterthanalpha.zip $(FILES)
 
 .PHONY: install
 install:
-	cp alphacolors.zip ${BTA_TEXTUREPACK_FOLDER}
+	cp betterthanalpha.zip ${BTA_TEXTUREPACK_FOLDER}
 
 .PHONY: all
 all: build install
