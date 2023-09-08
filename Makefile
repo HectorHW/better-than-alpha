@@ -1,5 +1,5 @@
 include .env
-FILES=pack.png pack.txt terrain.png misc/*.png
+FILES=pack.png pack.txt terrain.png misc/*.png misc/*.properties
 
 .PHONY: build
 build: build-xcf pack
