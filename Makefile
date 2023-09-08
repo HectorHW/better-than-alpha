@@ -17,4 +17,5 @@ pack:
 install:
 	cp alphacolors.zip ${BTA_TEXTUREPACK_FOLDER}
 
-
+.PHONY: all
+all: build install
