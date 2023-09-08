@@ -1,3 +1,4 @@
 *.zip
 terrain.png
+misc/*.png
 .env
