@@ -2,6 +2,11 @@ import typer
 from psd_tools import PSDImage
 from .layers import render_with_features
 from .fileutils import find_psd_files, get_matching_png_name
+from .features import (
+    FEATURES as ALL_FEATURES,
+    FEATURE_NAMES as ALL_FEATURE_NAMES,
+    select_enabled_features,
+)
 
 app = typer.Typer()
 
@@ -25,13 +30,15 @@ def render(features: list[str]):
         rendered_image.save(name)
         print(name)
 
-    if "seasons" in features:
-        print("misc/colors.properties")
+    for feature in select_enabled_features(features):
+        if feature.additional_includes:
+            print("\n".join(feature.additional_includes))
 
 
 @app.command("list")
 def list_features():
-    raise NotImplementedError()
+    for feature in ALL_FEATURES:
+        print(f"{feature.name}: {feature.documentation}")
 
 
 if __name__ == "__main__":
