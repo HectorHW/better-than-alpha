@@ -18,6 +18,9 @@ BASE_FILES = [
 
 @app.command("build")
 def render(features: list[str]):
+    if features == ["all"]:
+        features = ALL_FEATURE_NAMES
+
     for file in BASE_FILES:
         print(file)
 
