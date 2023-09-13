@@ -1,11 +1,9 @@
 from psd_tools import PSDImage
 from psd_tools.api.layers import PixelLayer, Group
-
 from typing import Generator, Any
 import re
 from functools import partial
-
-psd: PSDImage = PSDImage.open("terrain.psd")
+from PIL.Image import Image
 
 
 def iterate_up(
@@ -41,4 +39,9 @@ def is_layer_enabled(layer: Any, enabled_features: set[str]) -> bool:
     return group is None or group in enabled_features
 
 
-psd.composite(layer_filter=partial(is_layer_enabled, enabled_features={"trees"})).show()
+def render_with_features(image: PSDImage, enabled_features: set[str]) -> Image:
+    resulting_image = image.composite(
+        layer_filter=partial(is_layer_enabled, enabled_features=enabled_features)
+    )
+    assert isinstance(resulting_image, Image)
+    return resulting_image
