@@ -2,7 +2,7 @@ import glob
 import pathlib
 
 
-def find_all_images() -> list[str]:
+def find_psd_files() -> list[str]:
     return glob.glob("**/*.psd", recursive=True)
 
 

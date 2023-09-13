@@ -2,7 +2,6 @@ from psd_tools import PSDImage
 from psd_tools.api.layers import PixelLayer, Group
 from typing import Generator, Any
 import re
-from functools import partial
 from PIL.Image import Image
 
 
@@ -39,9 +38,20 @@ def is_layer_enabled(layer: Any, enabled_features: set[str]) -> bool:
     return group is None or group in enabled_features
 
 
-def render_with_features(image: PSDImage, enabled_features: set[str]) -> Image:
-    resulting_image = image.composite(
-        layer_filter=partial(is_layer_enabled, enabled_features=enabled_features)
-    )
+def render_with_features(
+    image: PSDImage, enabled_features: set[str]
+) -> tuple[Image, set[str]]:
+    enabled_features_in_file = set()
+
+    def layer_filter(layer):
+        group: str | None = find_feature_group(layer)
+
+        if is_layer_enabled(layer, enabled_features):
+            if group is not None:
+                enabled_features_in_file.add(group)
+            return True
+        return False
+
+    resulting_image = image.composite(layer_filter=layer_filter)
     assert isinstance(resulting_image, Image)
-    return resulting_image
+    return resulting_image, enabled_features_in_file
