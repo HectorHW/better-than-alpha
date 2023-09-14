@@ -1,17 +1,13 @@
--include .env
-FILES=pack.png pack.txt terrain.png misc/*.png misc/*.properties
+include .env
+
 
 .PHONY: build
-build: build-xcf pack
+build: build-pack
 
-.PHONY: build-xcf
-build-xcf:
-	cat build.gs | gimp -n -i -b -
-	cd misc && cat ../build.gs | gimp -n -i -b -
+.PHONY: build-pack
+build-pack:
+	poetry run bta-build build $(BTA_ENABLED_FEATURES) | zip betterthanalpha.zip -@
 
-.PHONY: pack
-pack:
-	zip betterthanalpha.zip $(FILES)
 
 .PHONY: install
 install:
