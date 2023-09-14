@@ -31,4 +31,4 @@ FEATURE_NAMES: list[str] = [f.name for f in FEATURES]
 
 
 def select_enabled_features(feature_names: list[str]) -> list[Feature]:
-    return [f for f in FEATURES if f.name in feature_names]
+    return [f for f in FEATURES if f.is_enabled(feature_names)]
