@@ -1,16 +1,12 @@
 import dataclasses
 from typing import Iterable
 
-FeatureName = str
-IncludedFile = str
-FeatureDoc = str
-
 
 @dataclasses.dataclass
 class Feature:
     name: str
     documentation: str
-    additional_includes: list[IncludedFile] = dataclasses.field(default_factory=list)
+    additional_includes: list[str] = dataclasses.field(default_factory=list)
 
     def is_enabled(self, match_against: Iterable[str]) -> bool:
         return self.name in match_against
