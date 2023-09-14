@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "betterthanalpha"
+name = "buildscript"
 version = "0.1.0"
 description = ""
 authors = ["Vladimir Redkin <vsredkin01@gmail.com>"]
@@ -14,6 +14,9 @@ typer = "^0.9.0"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.289"
 black = "^23.9.1"
+
+[tool.poetry.scripts]
+bta-build = "buildscript.build:app"
 
 [build-system]
 requires = ["poetry-core"]
