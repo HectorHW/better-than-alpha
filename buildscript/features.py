@@ -14,7 +14,7 @@ class Feature:
 
 FEATURES: list[Feature] = [
     Feature("trees", "alpha 1.1.2_01 tree colors"),
-    Feature("grass", "alpha grass & foliage colors"),
+    Feature("grass", "alpha grass & plants color"),
     Feature("stone", "old cobblestone & mossy cobblestone texture"),
     Feature(
         "seasons",
